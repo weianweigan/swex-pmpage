@@ -22,19 +22,20 @@ namespace CodeStack.SwEx.PMPage
     [ComVisible(true)]
     public abstract class PropertyManagerPageHandlerEx : IPropertyManagerPageHandlerEx, IPropertyManagerPage2Handler9
     {
-        internal delegate void SubmitSelectionDelegate(int Id, object Selection, int SelType, ref string ItemText, ref bool res);
+        public delegate void SubmitSelectionDelegate(int Id, object Selection, int SelType, ref string ItemText, ref bool res);
 
-        internal event Action<int, string> TextChanged;
-        internal event Action<int, double> NumberChanged;
-        internal event Action<int, bool> CheckChanged;
-        internal event Action<int, int> SelectionChanged;
-        internal event Action<int, int> ComboBoxChanged;
-        internal event Action<int> OptionChecked;
-        internal event Action<int> ButtonPressed;
-        internal event SubmitSelectionDelegate SubmitSelection;
+        public event Action<int, string> TextChanged;
+        public event Action<int, double> NumberChanged;
+        public event Action<int, bool> CheckChanged;
+        public event Action<int, int> SelectionChanged;
+        public event Action<int, int> ComboBoxChanged;
+        public event Action<int> OptionChecked;
+        public event Action<int> ButtonPressed;
+        public event Action<int, bool> WindowFromHandleControlCreated;
+        public event SubmitSelectionDelegate SubmitSelection;
 
-        internal event Action HelpRequested;
-        internal event Action WhatsNewRequested;
+        public event Action HelpRequested;
+        public event Action WhatsNewRequested;
 
         /// <inheritdoc/>
         public event Action DataChanged;
@@ -321,6 +322,7 @@ namespace CodeStack.SwEx.PMPage
         [EditorBrowsable(EditorBrowsableState.Never)]
         public int OnWindowFromHandleControlCreated(int Id, bool Status)
         {
+            WindowFromHandleControlCreated?.Invoke(Id,Status);
             return 0;
         }
     }

@@ -39,29 +39,37 @@
     <Reference Include="CodeStack.SwEx.Common, Version=0.9.9.0, Culture=neutral, PublicKeyToken=a46023996d4724e7, processorArchitecture=MSIL">
       <HintPath>..\packages\CodeStack.SwEx.Common.0.9.9\lib\net40\CodeStack.SwEx.Common.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="SolidWorks.Interop.sldworks, Version=27.1.0.72, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL">
-      <HintPath>..\packages\CodeStack.SwEx.Common.0.9.9\lib\net40\SolidWorks.Interop.sldworks.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\References\SolidWorks.Interop.sldworks.dll</HintPath>
     </Reference>
     <Reference Include="SolidWorks.Interop.swconst, Version=27.1.0.72, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL">
-      <HintPath>..\packages\CodeStack.SwEx.Common.0.9.9\lib\net40\SolidWorks.Interop.swconst.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\References\SolidWorks.Interop.swconst.dll</HintPath>
     </Reference>
     <Reference Include="SolidWorks.Interop.swpublished, Version=27.1.0.72, Culture=neutral, PublicKeyToken=89a97bdc5284e6d8, processorArchitecture=MSIL">
-      <HintPath>..\packages\CodeStack.SwEx.Common.0.9.9\lib\net40\SolidWorks.Interop.swpublished.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\References\SolidWorks.Interop.swpublished.dll</HintPath>
     </Reference>
-    <Reference Include="SolidWorksTools, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bd18593873b4686d, processorArchitecture=MSIL">
-      <HintPath>..\packages\CodeStack.SwEx.Common.0.9.9\lib\net40\SolidWorksTools.dll</HintPath>
+    <Reference Include="solidworkstools, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bd18593873b4686d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\solidworkstools.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
     <Reference Include="Xarial.VPages.Framework, Version=0.4.0.0, Culture=neutral, PublicKeyToken=6dcec729ca6a1943, processorArchitecture=MSIL">
       <HintPath>..\packages\Xarial.VPages.Framework.0.4.0\lib\net40\Xarial.VPages.Framework.dll</HintPath>
       <Private>True</Private>
@@ -73,6 +81,7 @@
     <Compile Include="Attributes\DependentOnAttribute.cs" />
     <Compile Include="Attributes\HelpAttribute.cs" />
     <Compile Include="Attributes\IgnoreBindingAttribute.cs" />
+    <Compile Include="Attributes\LabelOptionsAttribute.cs" />
     <Compile Include="Attributes\MessageAttribute.cs" />
     <Compile Include="Attributes\OptionBoxAttribute.cs" />
     <Compile Include="Attributes\OptionBoxOptionsAttribute.cs" />
@@ -90,11 +99,13 @@
     <Compile Include="Base\IPageSpec.cs" />
     <Compile Include="Base\IPropertyManagerPageEx.cs" />
     <Compile Include="Base\IPropertyManagerPageHandlerEx.cs" />
+    <Compile Include="Base\IPropertyManagerWinFromHandlerEx.cs" />
     <Compile Include="Base\ISelectionCustomFilter.cs" />
     <Compile Include="Base\PropertyManagerPageClosedDelegate.cs" />
     <Compile Include="Base\PropertyManagerPageClosingDelegate.cs" />
     <Compile Include="Constructors\PropertyManagerPageBitmapConstructor.cs" />
     <Compile Include="Constructors\PropertyManagerPageButtonConstructor.cs" />
+    <Compile Include="Constructors\PropertyManagerPageLabelConstructor.cs" />
     <Compile Include="Constructors\PropertyManagerPageTabConstructor.cs" />
     <Compile Include="Constructors\PropertyManagerPageOptionBoxConstructor.cs" />
     <Compile Include="Constructors\PropertyManagerPageConstructor.cs" />
@@ -105,9 +116,11 @@
     <Compile Include="Constructors\PropertyManagerPageNumberBoxConstructor.cs" />
     <Compile Include="Constructors\PropertyManagerPageCheckBoxConstructor.cs" />
     <Compile Include="Constructors\PropertyManagerPageTextBoxConstructor.cs" />
+    <Compile Include="Constructors\PropertyManagerPageWindowFromHandleConstructor.cs" />
     <Compile Include="Controls\PropertyManagerPageBitmapEx.cs" />
     <Compile Include="Controls\PropertyManagerPageElementEx.cs" />
     <Compile Include="Controls\PropertyManagerPageGroupBaseEx.cs" />
+    <Compile Include="Controls\PropertyManagerPageLabelEx.cs" />
     <Compile Include="Controls\PropertyManagerPageTabEx.cs" />
     <Compile Include="Controls\PropertyManagerPageOptionBoxEx.cs" />
     <Compile Include="Controls\PropertyManagerPagePageEx.cs" />
@@ -119,6 +132,7 @@
     <Compile Include="Controls\PropertyManagerPageNumberBoxEx.cs" />
     <Compile Include="Controls\PropertyManagerPageSelectionBoxEx.cs" />
     <Compile Include="Controls\PropertyManagerPageTextBoxEx.cs" />
+    <Compile Include="Controls\PropertyManagerPageWindowFromHandleEx.cs" />
     <Compile Include="Data\ControlIcon.cs" />
     <Compile Include="Data\PageSpec.cs" />
     <Compile Include="Data\TabIcon.cs" />

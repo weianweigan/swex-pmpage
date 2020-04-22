@@ -88,6 +88,33 @@ namespace CodeStack.SwEx.PMPage
             m_PmpBuilder = new PropertyManagerPageBuilder<THandler>(app, m_IconsConv, m_Handler, pageSpec, Logger);
         }
         
+        /// <summary>
+        /// Use to single instance page
+        /// </summary>
+        /// <param name="model"></param>
+        public void ShowWithoutDispose(TModel model)
+        {
+            Logger.Log("ReOpening page");
+
+            const int OPTS_DEFAULT = 0;
+
+            if (m_ActivePage != null)
+            {
+                var wpfControls = m_ActivePage.Binding.Bindings.Select(b => b.Control).OfType<IPropertyManagerWinFromHandlerEx>();
+
+                foreach (var wpfControl in wpfControls)
+                {
+                    wpfControl.ReSetHandle();
+                }
+
+                m_ActivePage.Page.Show2(OPTS_DEFAULT);
+            }
+            else
+            {
+                Show(model);
+            }
+        }
+
         /// <inheritdoc/>
         public void Show(TModel model)
         {
